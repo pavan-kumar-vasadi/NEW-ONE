@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haveli Multi Cuisine | Premium Dining in Vijayawada</title>
+    <meta name="description" content="Haveli Multi Cuisine Restaurant in Vijayawada serving authentic Biryani, Indian and Chinese food. Order online or book a table.">
+    <meta name="keywords" content="Haveli Restaurant Vijayawada, Biryani in Vijayawada, Best restaurant Vijayawada, Chicken Biryani Vijayawada">
+    <link rel="icon" href="favicon.png">
+    <meta property="og:title" content="Haveli Multi Cuisine | Best Biryani in Vijayawada">
+<meta property="og:description" content="Enjoy authentic Chicken Dum Biryani and multi cuisine dishes at Haveli Restaurant Vijayawada.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1633945274405-b6c8069047b0">
+<meta property="og:url" content="https://pavan-kumar-vasadi.github.io/new-website/">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pavan-kumar-vasadi.github.io/new-website/">
+    <script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Restaurant",
+"name": "Haveli Multi Cuisine",
+"image": "https://images.unsplash.com/photo-1633945274405-b6c8069047b0",
+"@id": "https://pavan-kumar-vasadi.github.io/new-website/",
+"url": "https://pavan-kumar-vasadi.github.io/new-website/",
+"telephone": "+91 9876543210",
+"address": {
+"@type": "PostalAddress",
+"streetAddress": "Opp IV Palace, Beside Ramaya Mess",
+"addressLocality": "Vijayawada",
+"addressRegion": "Andhra Pradesh",
+"postalCode": "520002",
+"addressCountry": "IN"
+},
+"servesCuisine": "Indian, Biryani, Chinese",
+"priceRange": "₹200 - ₹400",
+"openingHours": "Mo-Su 11:30-23:30",
+"aggregateRating": {
+"@type": "AggregateRating",
+"ratingValue": "4.1",
+"reviewCount": "296"
+}
+}
+</script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-utensils"></i> HAVELI
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#popular">Popular</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="cart-btn" id="cartBtn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Order</h3>
+            <button class="close-cart" id="closeCart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Items injected via JS -->
+            <p class="empty-msg">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="total-row">
+                <span>Total</span>
+                <span class="total-price">₹0</span>
+            </div>
+           <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+
+<div class="checkout-form" id="checkoutForm" style="display:none;">
+    <h4>Enter Your Details</h4>
+    <input type="text" id="customerName" placeholder="Your Name" required>
+    <input type="tel" id="customerPhone" placeholder="Phone Number" required>
+    <textarea id="customerAddress" placeholder="Delivery Address" rows="3" required></textarea>
+ <h4>Select Payment Method</h4>
+
+<label>
+<input type="radio" name="payment" value="cod" checked>
+Cash on Delivery
+</label>
+
+<label>
+<input type="radio" name="payment" value="phonepe">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/71/PhonePe_Logo.svg" width="25">
+PhonePe
+</label>
+
+<label>
+<input type="radio" name="payment" value="gpay">
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" width="25">
+Google Pay
+</label>
+ <button id="checkoutSubmit">Pay now</button>
+ <button id="confirmPaymentBtn">I Have Paid</button>
+</div>
+</div>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="fade-in">Authentic Biryani & <br><span class="text-gold">Multi Cuisine</span> Experience</h1>
+            <p class="fade-in">Experience the royal taste of Vijayawada at Haveli.</p>
+            <div class="hero-buttons fade-in">
+                <a href="#menu" class="btn btn-primary">Explore Menu</a>
+                <a href="#contact" class="btn btn-secondary">Book a Table</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section class="highlights">
+        <div class="container highlight-grid">
+            <div class="highlight-card glass">
+                <i class="fas fa-star text-gold"></i>
+                <div>
+                    <h3>4.1 <span class="small">Rating</span></h3>
+                    <p>Based on 296 Reviews</p>
+                </div>
+            </div>
+            <div class="highlight-card glass">
+                <i class="fas fa-rupee-sign text-gold"></i>
+                <div>
+                    <h3>₹200 - ₹400</h3>
+                    <p>Price for two</p>
+                </div>
+            </div>
+            <div class="highlight-card glass">
+                <i class="fas fa-map-marker-alt text-gold"></i>
+                <div>
+                    <h3>Vijayawada</h3>
+                    <p>Opp IV Palace, Beside Ramaya Mess</p>
+                </div>
+            </div>
+            <div class="highlight-card glass">
+                <i class="fas fa-motorcycle text-gold"></i>
+                <div>
+                    <h3>Services</h3>
+                    <p>Dine-in • Drive-through • Delivery</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Our <span class="text-gold">Menu</span></h2>
+            <div class="menu-grid">
+                <!-- Menu Item 1 -->
+                <div class="menu-card glass">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?q=80&w=600&auto=format&fit=crop" loading="lazy" alt="Chicken Dum Biryani Haveli Restaurant Vijayawada">
+                    </div>
+                    <div class="menu-details">
+                        <div class="menu-header">
+                            <h3>Chicken Dum Biryani</h3>
+                            <span class="price">₹100</span>
+                        </div>
+                        <p>Slow-cooked basmati rice with tender chicken and aromatic spices.</p>
+                        <button class="add-btn" onclick="addToCart('Chicken Dum Biryani', 100)">
+                            <i class="fas fa-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Menu Item 2 -->
+                <div class="menu-card glass">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=600&auto=format&fit=crop" loading="lazy" alt="Prawns Biryani">
+                    </div>
+                    <div class="menu-details">
+                        <div class="menu-header">
+                            <h3>Prawns Biryani</h3>
+                            <span class="price">₹350</span>
+                        </div>
+                        <p>Fresh prawns cooked with saffron rice and special biryani masala.</p>
+                        <button class="add-btn" onclick="addToCart('Prawns Biryani', 350)">
+                            <i class="fas fa-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Menu Item 3 -->
+                <div class="menu-card glass">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600&auto=format&fit=crop" loading="lazy" alt="Paneer Biryani">
+                    </div>
+                    <div class="menu-details">
+                        <div class="menu-header">
+                            <h3>Paneer Biryani</h3>
+                            <span class="price">₹240</span>
+                        </div>
+                        <p>Spicy cottage cheese cubes layered with fragrant basmati rice.</p>
+                        <button class="add-btn" onclick="addToCart('Paneer Biryani', 240)">
+                            <i class="fas fa-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Menu Item 4 -->
+                <div class="menu-card glass">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=600&auto=format&fit=crop" loading="lazy" alt="Chicken Fry Biryani">
+                    </div>
+                    <div class="menu-details">
+                        <div class="menu-header">
+                            <h3>Chicken Fry Biryani</h3>
+                            <span class="price">₹300</span>
+                        </div>
+                        <p>Crispy fried chicken pieces served with spicy biryani rice.</p>
+                        <button class="add-btn" onclick="addToCart('Chicken Fry Biryani', 300)">
+                            <i class="fas fa-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Menu Item 5 -->
+                <div class="menu-card glass">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=600&auto=format&fit=crop" loading="lazy" alt="Veg Manchow Soup">
+                    </div>
+                    <div class="menu-details">
+                        <div class="menu-header">
+                            <h3>Veg Manchow Soup</h3>
+                            <span class="price">₹120</span>
+                        </div>
+                        <p>Hot and spicy Chinese soup with fresh vegetables.</p>
+                        <button class="add-btn" onclick="addToCart('Veg Manchow Soup', 120)">
+                            <i class="fas fa-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Menu Item 6 -->
+                <div class="menu-card glass">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1546549032-9571cd6b27df?q=80&w=600&auto=format&fit=crop" loading="lazy" alt="Tomato Soup">
+                    </div>
+                    <div class="menu-details">
+                        <div class="menu-header">
+                            <h3>Tomato Soup</h3>
+                            <span class="price">₹100</span>
+                        </div>
+                        <p>Classic creamy tomato soup with a hint of basil.</p>
+                        <button class="add-btn" onclick="addToCart('Tomato Soup', 100)">
+                            <i class="fas fa-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Dishes Section -->
+    <section id="popular" class="section-padding bg-darker">
+        <div class="container">
+            <h2 class="section-title">Customer <span class="text-gold">Favorites</span></h2>
+            <div class="popular-grid">
+                <div class="popular-item">
+                    <img src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?q=80&w=600&auto=format&fit=crop" alt="Chicken Dum Biryani">
+                    <div class="popular-info">
+                        <h3>Chicken Dum Biryani</h3>
+                        <p>Our signature dish.</p>
+                    </div>
+                </div>
+                <div class="popular-item">
+                    <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=600&auto=format&fit=crop" alt="Prawns Biryani">
+                    <div class="popular-info">
+                        <h3>Prawns Biryani</h3>
+                        <p>Fresh catch special.</p>
+                    </div>
+                </div>
+                <div class="popular-item">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600&auto=format&fit=crop" alt="Paneer Biryani">
+                    <div class="popular-info">
+                        <h3>Paneer Biryani</h3>
+                        <p>Best vegetarian option.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Our <span class="text-gold">Gallery</span></h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=600&auto=format&fit=crop" alt="Food 1"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=600&auto=format&fit=crop" alt="Ambience 1"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=600&auto=format&fit=crop" alt="Food 2"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=600&auto=format&fit=crop" alt="Ambience 2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="section-padding bg-darker">
+        <div class="container">
+            <h2 class="section-title">What People <span class="text-gold">Say</span></h2>
+            <div class="reviews-container">
+                <div class="review-card glass">
+                    <div class="stars">★★★★★</div>
+                    <p>"Best Biryani in Vijayawada! The taste is authentic and the service is top-notch. Highly recommended."</p>
+                    <h4>- Rahul K.</h4>
+                </div>
+                <div class="review-card glass">
+                    <div class="stars">★★★★☆</div>
+                    <p>"Great ambience for family dinners. The Paneer Biryani is a must-try. Prices are reasonable."</p>
+                    <h4>- Priya S.</h4>
+                </div>
+                <div class="review-card glass">
+                    <div class="stars">★★★★★</div>
+                    <p>"Love the drive-through service. Food arrives hot and fresh. Haveli is my go-to spot."</p>
+                    <h4>- Amit V.</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map & Contact Section -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2 class="section-title">Visit <span class="text-gold">Us</span></h2>
+                    <p><i class="fas fa-map-marker-alt"></i> Opp IV Palace, Beside Ramaya Mess, Vijayawada, Andhra Pradesh 520002</p>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-clock"></i> Open Daily - 11:30 PM</p>
+                    
+                    <form class="contact-form">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Message" rows="4"></textarea>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="map-container">
+<iframe
+src="https://www.google.com/maps?q=Haveli+Multi+Cuisine+Restaurant+Vijayawada&z=15&output=embed"
+width="100%"
+height="400"
+style="border:0;"
+allowfullscreen=""
+loading="lazy">
+</iframe>
+</div>
+</div>
+</div>
+</section>
+<script src="script.js"></script>
+<section id="book-table">
+<h2>Book a <span class="text-gold">Table</span></h2>
+
+<form>
+<input type="text" id="name" placeholder="Your Name">
+<input type="tel" id="phone" placeholder="Phone Number">
+<input type="date" id="date">
+<input type="time" id="time">
+<input type="number" id="guests" placeholder="Number of Guests">
+<button type="button" onclick="bookTable()">Book via WhatsApp</button>
+</form>
+</section>
+<!-- Order Success Popup -->
+<div class="order-success-popup" id="orderSuccessPopup">
+    <div class="popup-box">
+        <div class="success-icon">
+            <i class="fas fa-check"></i>
+        </div>
+        <h2>Your Order Successfully Placed</h2>
+        <p>Thank you for ordering from Haveli Restaurant.</p>
+        <p>Your Order ID: <span id="orderNumber"></span></p>
+        <button onclick="closeSuccessPopup()">OK</button>
+    </div>
+</div>
+
+<div id="billPopup" class="popup">
+<h2>Your Order Bill</h2>
+
+<div id="billItems"></div>
+
+<h3 id="billTotal"></h3>
+
+<button onclick="closeBillPopup()">Cancel</button>
+<button id="confirmOrderBtn">Confirm Order</button>
+</div>
+<audio id="orderSound" src="koiroylers-shop-notification-355746.mp3"></audio>
+</body>
+</html>
